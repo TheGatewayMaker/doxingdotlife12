@@ -255,10 +255,69 @@ export default function UppostPanel() {
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="w-full px-4 py-3 bg-background border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none transition-colors"
+                className="w-full px-4 py-3 bg-background border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none transition-all"
                 rows={5}
                 placeholder="Enter post description"
               />
+            </div>
+
+            {/* Thumbnail Upload */}
+            <div>
+              <label className="block text-sm font-bold mb-3 text-foreground">
+                Thumbnail Image <span className="text-destructive">*</span>
+              </label>
+              <div className="border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer hover:border-accent hover:bg-accent/5 transition-all">
+                <input
+                  type="file"
+                  onChange={handleThumbnailChange}
+                  accept="image/*"
+                  className="hidden"
+                  id="thumbnail-upload"
+                />
+                <label htmlFor="thumbnail-upload" className="cursor-pointer block">
+                  {thumbnail ? (
+                    <div className="space-y-3">
+                      <div className="text-3xl">✓</div>
+                      <p className="text-sm font-bold text-accent">
+                        {thumbnail.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {(thumbnail.size / 1024 / 1024).toFixed(2)} MB • Ready to upload
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      <Image className="w-10 h-10 mx-auto text-muted-foreground" />
+                      <p className="text-sm font-bold text-foreground">
+                        Click to upload thumbnail
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Images only (Max 50MB)
+                      </p>
+                    </div>
+                  )}
+                </label>
+              </div>
+
+              {thumbnailPreview && (
+                <div className="mt-6 relative group">
+                  <img
+                    src={thumbnailPreview}
+                    alt="Thumbnail Preview"
+                    className="max-h-48 rounded-xl mx-auto border border-border object-cover"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setThumbnail(null);
+                      setThumbnailPreview("");
+                    }}
+                    className="absolute top-2 right-2 bg-destructive text-destructive-foreground p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Location Info */}
