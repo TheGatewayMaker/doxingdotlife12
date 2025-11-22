@@ -268,10 +268,10 @@ export default function UppostPanel() {
 
             {/* Media Upload */}
             <div>
-              <label className="block text-sm font-semibold mb-2">
-                Media <span className="text-destructive">*</span>
+              <label className="block text-sm font-bold mb-3 text-foreground">
+                Media File <span className="text-destructive">*</span>
               </label>
-              <div className="border-2 border-dashed border-border rounded-lg p-8 text-center cursor-pointer hover:border-accent transition-colors">
+              <div className="border-2 border-dashed border-border rounded-xl p-10 text-center cursor-pointer hover:border-accent hover:bg-accent/5 transition-all">
                 <input
                   type="file"
                   onChange={handleMediaChange}
@@ -281,18 +281,19 @@ export default function UppostPanel() {
                 />
                 <label htmlFor="media-upload" className="cursor-pointer block">
                   {media ? (
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium text-accent">{media.name}</p>
+                    <div className="space-y-3">
+                      <div className="text-3xl">✅</div>
+                      <p className="text-sm font-bold text-accent">{media.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        {(media.size / 1024 / 1024).toFixed(2)} MB
+                        {(media.size / 1024 / 1024).toFixed(2)} MB • Ready to upload
                       </p>
                     </div>
                   ) : (
-                    <div className="space-y-2">
-                      <Upload className="w-8 h-8 mx-auto text-muted-foreground" />
-                      <p className="text-sm font-medium">Click to upload media</p>
+                    <div className="space-y-3">
+                      <Upload className="w-10 h-10 mx-auto text-muted-foreground" />
+                      <p className="text-sm font-bold text-foreground">Click to upload media</p>
                       <p className="text-xs text-muted-foreground">
-                        Images and videos supported
+                        Images and videos supported (Max 100MB)
                       </p>
                     </div>
                   )}
@@ -300,18 +301,18 @@ export default function UppostPanel() {
               </div>
 
               {mediaPreview && (
-                <div className="mt-4 relative">
+                <div className="mt-6 relative">
                   {media?.type.startsWith("image/") ? (
                     <img
                       src={mediaPreview}
                       alt="Preview"
-                      className="max-h-48 rounded-lg mx-auto"
+                      className="max-h-64 rounded-xl mx-auto border border-border"
                     />
                   ) : (
                     <video
                       src={mediaPreview}
                       controls
-                      className="max-h-48 rounded-lg mx-auto"
+                      className="max-h-64 rounded-xl mx-auto border border-border"
                     />
                   )}
                 </div>
@@ -319,23 +320,23 @@ export default function UppostPanel() {
             </div>
 
             {uploadMessage && (
-              <div className="p-4 bg-green-900 bg-opacity-20 border border-green-600 rounded text-green-400 text-sm">
-                {uploadMessage}
+              <div className="p-4 bg-green-900/20 border border-green-600/50 rounded-lg text-green-400 text-sm font-medium flex items-center gap-2">
+                <span>✓</span> {uploadMessage}
               </div>
             )}
 
             {uploadError && (
-              <div className="p-4 bg-destructive bg-opacity-10 border border-destructive rounded text-destructive text-sm">
-                {uploadError}
+              <div className="p-4 bg-destructive/10 border border-destructive/50 rounded-lg text-destructive text-sm font-medium flex items-center gap-2">
+                <span>⚠️</span> {uploadError}
               </div>
             )}
 
             <button
               type="submit"
               disabled={uploading}
-              className="w-full px-4 py-3 bg-accent text-accent-foreground font-semibold rounded-lg hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full px-4 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-95"
             >
-              {uploading ? "Uploading..." : "Upload Post"}
+              {uploading ? "📤 Uploading..." : "📤 Upload Post"}
             </button>
           </form>
         </div>
