@@ -154,7 +154,7 @@ export default function UppostPanel() {
         method: "POST",
         body: formData,
         headers: {
-          Authorization: `Bearer ${auth.token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
