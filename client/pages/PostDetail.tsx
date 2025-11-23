@@ -12,6 +12,7 @@ export default function PostDetail() {
   const [post, setPosts] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [thumbnailError, setThumbnailError] = useState(false);
 
   useEffect(() => {
     const loadPost = async () => {
