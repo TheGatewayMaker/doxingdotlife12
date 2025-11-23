@@ -370,7 +370,17 @@ export default function MediaViewer({
             ) : (
               <div className="flex-1 bg-muted flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-6xl mb-4">🖼️</div>
+                  <svg
+                    className="w-24 h-24 mx-auto mb-4 text-gray-500"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
                   <p className="text-white text-lg">Image unavailable</p>
                   <p className="text-gray-400 mt-2">{currentMedia.name}</p>
                 </div>
