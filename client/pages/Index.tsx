@@ -386,10 +386,7 @@ export default function Index() {
   useEffect(() => {
     let filtered = posts;
     const hasFilters =
-      !!searchQuery ||
-      !!selectedCountry ||
-      !!selectedCity ||
-      !!selectedServer;
+      !!searchQuery || !!selectedCountry || !!selectedCity || !!selectedServer;
     setHasSearchFilters(hasFilters);
 
     if (searchQuery) {
@@ -660,7 +657,8 @@ export default function Index() {
                   </h2>
                 </div>
                 <p className="text-muted-foreground mt-3">
-                  Showing {displayedPosts.length} of {filteredPosts.length} posts
+                  Showing {displayedPosts.length} of {filteredPosts.length}{" "}
+                  posts
                 </p>
               </>
             )}

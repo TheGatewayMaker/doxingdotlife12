@@ -143,7 +143,9 @@ export const VideoIcon: React.FC<IconProps> = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-export const AttachmentIcon: React.FC<IconProps> = ({ className = "w-5 h-5" }) => (
+export const AttachmentIcon: React.FC<IconProps> = ({
+  className = "w-5 h-5",
+}) => (
   <svg
     className={className}
     viewBox="0 0 24 24"

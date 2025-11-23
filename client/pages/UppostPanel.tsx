@@ -430,7 +430,8 @@ export default function UppostPanel() {
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                       <p className="text-sm font-bold text-accent">
-                        {mediaFiles.length} file{mediaFiles.length !== 1 ? "s" : ""} selected
+                        {mediaFiles.length} file
+                        {mediaFiles.length !== 1 ? "s" : ""} selected
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Click to add more files
