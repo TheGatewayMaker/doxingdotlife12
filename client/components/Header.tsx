@@ -18,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-card/80 backdrop-blur-sm border-b border-border shadow-md animate-fadeIn">
+    <header className="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-700 shadow-lg animate-fadeIn">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link
           to="/"
@@ -31,26 +31,24 @@ export default function Header() {
               className="w-full h-full object-cover"
             />
           </div>
-          <span className="font-black text-lg text-foreground hidden sm:inline">
+          <span className="font-black text-lg text-white hidden sm:inline">
             Doxing Dot Life
           </span>
-          <span className="font-black text-lg text-foreground sm:hidden">
-            DDL
-          </span>
+          <span className="font-black text-lg text-white sm:hidden">DDL</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <Link
             to="/"
-            className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-accent transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
           >
             <HomeIcon className="w-5 h-5" />
             Home
           </Link>
           <Link
             to="/dox-anyone"
-            className="flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent font-semibold rounded-lg hover:bg-accent hover:text-accent-foreground transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
           >
             🔍 Dox Anyone
           </Link>
@@ -58,19 +56,19 @@ export default function Header() {
             <>
               <Link
                 to="/uppostpanel"
-                className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-accent transition-colors"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
               >
                 📤 Upload
               </Link>
               <Link
                 to="/admin-panel"
-                className="flex items-center gap-2 px-4 py-2 bg-amber-500/10 text-amber-500 font-semibold rounded-lg hover:bg-amber-500 hover:text-amber-950 transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition-all"
               >
                 ⚙️ Admin
               </Link>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 bg-destructive/10 text-destructive font-semibold rounded-lg hover:bg-destructive hover:text-destructive-foreground transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all"
               >
                 <LogOut className="w-4 h-4" />
                 Logout
@@ -81,13 +79,13 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+          className="md:hidden p-2 hover:bg-slate-700 rounded-lg transition-colors"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
           {isSidebarOpen ? (
-            <X className="w-6 h-6 text-foreground" />
+            <X className="w-6 h-6 text-white" />
           ) : (
-            <Menu className="w-6 h-6 text-foreground" />
+            <Menu className="w-6 h-6 text-white" />
           )}
         </button>
 
@@ -101,12 +99,12 @@ export default function Header() {
             />
 
             {/* Sidebar */}
-            <div className="fixed left-0 top-16 bottom-0 w-64 bg-card border-r border-border md:hidden z-50 animate-slideInLeft shadow-lg flex flex-col">
+            <div className="fixed left-0 top-16 bottom-0 w-64 bg-slate-800 border-r border-slate-700 md:hidden z-50 animate-slideInLeft shadow-lg flex flex-col">
               <nav className="p-4 space-y-3 overflow-y-auto flex-1">
                 <Link
                   to="/"
                   onClick={closeSidebar}
-                  className="flex items-center gap-3 w-full px-4 py-3 text-foreground font-semibold hover:bg-muted rounded-lg transition-colors"
+                  className="flex items-center gap-3 w-full px-4 py-3 text-gray-300 font-semibold hover:bg-slate-700 hover:text-white rounded-lg transition-colors"
                 >
                   <HomeIcon className="w-5 h-5" />
                   Home
@@ -114,7 +112,7 @@ export default function Header() {
                 <Link
                   to="/dox-anyone"
                   onClick={closeSidebar}
-                  className="flex items-center gap-3 w-full px-4 py-3 text-accent font-semibold hover:bg-accent/10 rounded-lg transition-colors bg-accent/5"
+                  className="flex items-center gap-3 w-full px-4 py-3 text-white font-semibold hover:bg-blue-600 rounded-lg transition-colors bg-blue-600/20"
                 >
                   🔍 Dox Anyone
                 </Link>
@@ -123,14 +121,14 @@ export default function Header() {
                     <Link
                       to="/uppostpanel"
                       onClick={closeSidebar}
-                      className="flex items-center gap-3 w-full px-4 py-3 text-foreground font-semibold hover:bg-muted rounded-lg transition-colors"
+                      className="flex items-center gap-3 w-full px-4 py-3 text-gray-300 font-semibold hover:bg-slate-700 hover:text-white rounded-lg transition-colors"
                     >
                       📤 Upload
                     </Link>
                     <Link
                       to="/admin-panel"
                       onClick={closeSidebar}
-                      className="flex items-center gap-3 w-full px-4 py-3 text-amber-500 font-semibold hover:bg-amber-500/10 rounded-lg transition-colors bg-amber-500/5"
+                      className="flex items-center gap-3 w-full px-4 py-3 text-white font-semibold hover:bg-yellow-600 rounded-lg transition-colors bg-yellow-600/20"
                     >
                       ⚙️ Admin Panel
                     </Link>
@@ -138,10 +136,10 @@ export default function Header() {
                 )}
               </nav>
               {isAuthenticated && (
-                <div className="p-4 border-t border-border">
+                <div className="p-4 border-t border-slate-700">
                   <button
                     onClick={handleLogout}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-destructive/10 text-destructive font-semibold rounded-lg hover:bg-destructive hover:text-destructive-foreground transition-all"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all"
                   >
                     <LogOut className="w-4 h-4" />
                     Logout

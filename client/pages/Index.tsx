@@ -422,33 +422,33 @@ export default function Index() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col animate-fadeIn">
+    <div className="min-h-screen bg-slate-900 text-white flex flex-col animate-fadeIn">
       <Header />
 
       <main className="flex-1 w-full">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-background via-card/50 to-background pt-8 pb-8 md:pt-16 md:pb-12 border-b border-border/50">
+        <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-900 pt-8 pb-8 md:pt-16 md:pb-12 border-b border-slate-700">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="animate-fadeIn" style={{ animationDelay: "0.1s" }}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 text-foreground tracking-tighter leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 text-white tracking-tighter leading-tight">
                 🔍 Doxing Dot Life
               </h1>
-              <p className="text-base sm:text-lg md:text-xl font-semibold text-muted-foreground mb-6 max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-gray-400 mb-6 max-w-2xl">
                 Find if you or someone you know have been Doxed
               </p>
             </div>
 
             {/* Search Bar */}
             <div
-              className="relative mb-8 animate-fadeIn"
+              className="relative mb-4 animate-fadeIn"
               style={{ animationDelay: "0.2s" }}
             >
               <input
                 type="text"
-                placeholder="Search for individuals..."
+                placeholder="Search Doxed Individuals"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-card border-2 border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm sm:text-base transition-all shadow-md hover:shadow-lg"
+                className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-slate-800 border-2 border-slate-700 hover:border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base transition-all shadow-md hover:shadow-lg"
               />
               <SearchIcon className="absolute right-4 sm:right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
             </div>
@@ -458,17 +458,11 @@ export default function Index() {
               className="mb-0 animate-fadeIn"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="flex items-center gap-2 mb-5">
-                <FilterIcon className="w-4 h-4 text-accent" />
-                <h3 className="text-xs font-black text-foreground uppercase tracking-widest">
-                  Filter by Category
-                </h3>
-              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {/* Country Dropdown */}
                 <div className="relative group">
-                  <label className="text-sm font-bold text-foreground block mb-3 flex items-center gap-2">
-                    <GlobeIcon className="w-4 h-4 text-accent" />
+                  <label className="text-sm font-bold text-white block mb-3 flex items-center gap-2">
+                    <GlobeIcon className="w-4 h-4 text-blue-400" />
                     By Country
                   </label>
                   <input
@@ -478,10 +472,10 @@ export default function Index() {
                     }
                     value={countrySearch}
                     onChange={(e) => setCountrySearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {countrySearch && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
                       {filteredCountries.length > 0 ? (
                         filteredCountries.map((country) => (
                           <button
@@ -491,13 +485,13 @@ export default function Index() {
                               setCountrySearch("");
                               setSelectedCity("");
                             }}
-                            className="w-full text-left px-4 py-2 hover:bg-accent/20 text-foreground text-sm transition-colors"
+                            className="w-full text-left px-4 py-2 hover:bg-slate-700 text-white text-sm transition-colors"
                           >
                             {country}
                           </button>
                         ))
                       ) : (
-                        <div className="px-4 py-2 text-muted-foreground text-sm">
+                        <div className="px-4 py-2 text-gray-500 text-sm">
                           No countries found
                         </div>
                       )}
@@ -520,8 +514,8 @@ export default function Index() {
 
                 {/* City Dropdown */}
                 <div className="relative group">
-                  <label className="text-sm font-bold text-foreground block mb-3 flex items-center gap-2">
-                    <MapPinIcon className="w-4 h-4 text-accent" />
+                  <label className="text-sm font-bold text-white block mb-3 flex items-center gap-2">
+                    <MapPinIcon className="w-4 h-4 text-blue-400" />
                     By City
                   </label>
                   <input
@@ -529,10 +523,10 @@ export default function Index() {
                     placeholder={selectedCity ? selectedCity : "Select city..."}
                     value={citySearch}
                     onChange={(e) => setCitySearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {citySearch && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
                       {availableCities.length > 0 ? (
                         availableCities.map((city) => (
                           <button
@@ -541,13 +535,13 @@ export default function Index() {
                               setSelectedCity(city);
                               setCitySearch("");
                             }}
-                            className="w-full text-left px-4 py-2 hover:bg-accent/20 text-foreground text-sm transition-colors"
+                            className="w-full text-left px-4 py-2 hover:bg-slate-700 text-white text-sm transition-colors"
                           >
                             {city}
                           </button>
                         ))
                       ) : (
-                        <div className="px-4 py-2 text-muted-foreground text-sm">
+                        <div className="px-4 py-2 text-gray-500 text-sm">
                           No cities found
                         </div>
                       )}
@@ -569,8 +563,8 @@ export default function Index() {
 
                 {/* Server Dropdown */}
                 <div className="relative group">
-                  <label className="text-sm font-bold text-foreground block mb-3 flex items-center gap-2">
-                    <ServerIcon className="w-4 h-4 text-accent" />
+                  <label className="text-sm font-bold text-white block mb-3 flex items-center gap-2">
+                    <ServerIcon className="w-4 h-4 text-blue-400" />
                     By Server
                   </label>
                   <input
@@ -580,10 +574,10 @@ export default function Index() {
                     }
                     value={serverSearch}
                     onChange={(e) => setServerSearch(e.target.value)}
-                    className="w-full px-4 py-3 bg-card border border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm transition-all shadow-sm hover:shadow-md"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all shadow-sm hover:shadow-md"
                   />
                   {serverSearch && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800 border border-slate-700 rounded-lg z-50 max-h-48 overflow-y-auto shadow-lg">
                       {filteredServers.length > 0 ? (
                         filteredServers.map((server) => (
                           <button
@@ -592,13 +586,13 @@ export default function Index() {
                               setSelectedServer(server);
                               setServerSearch("");
                             }}
-                            className="w-full text-left px-4 py-2 hover:bg-accent/20 text-foreground text-sm transition-colors"
+                            className="w-full text-left px-4 py-2 hover:bg-slate-700 text-white text-sm transition-colors"
                           >
                             {server}
                           </button>
                         ))
                       ) : (
-                        <div className="px-4 py-2 text-muted-foreground text-sm">
+                        <div className="px-4 py-2 text-gray-500 text-sm">
                           No servers found
                         </div>
                       )}
@@ -627,22 +621,22 @@ export default function Index() {
           <div className="mb-10 sm:mb-12 animate-fadeIn">
             {isLoadingPosts ? (
               <>
-                <h2 className="text-5xl md:text-6xl font-black mb-3 flex items-center gap-3">
+                <h2 className="text-5xl md:text-6xl font-black mb-3 flex items-center gap-3 text-white">
                   <span className="inline-block animate-spin">
-                    <div className="w-10 h-10 border-3 border-muted border-t-accent rounded-full"></div>
+                    <div className="w-10 h-10 border-3 border-slate-700 border-t-blue-500 rounded-full"></div>
                   </span>
                   Loading Posts
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-gray-400">
                   Fetching the latest posts for you...
                 </p>
               </>
             ) : filteredPosts.length === 0 ? (
               <>
-                <h2 className="text-5xl md:text-6xl font-black mb-3">
+                <h2 className="text-5xl md:text-6xl font-black mb-3 text-white">
                   No Posts Found
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-gray-400">
                   {hasSearchFilters
                     ? "Try adjusting your search filters"
                     : "No posts available at the moment"}
@@ -651,12 +645,12 @@ export default function Index() {
             ) : (
               <>
                 <div className="flex items-center gap-3">
-                  <FireIcon className="w-8 h-8 text-accent" />
-                  <h2 className="text-5xl md:text-6xl font-black">
+                  <FireIcon className="w-8 h-8 text-yellow-500" />
+                  <h2 className="text-5xl md:text-6xl font-black text-white">
                     Hot & Recent Posts
                   </h2>
                 </div>
-                <p className="text-muted-foreground mt-3">
+                <p className="text-gray-400 mt-3">
                   Showing {displayedPosts.length} of {filteredPosts.length}{" "}
                   posts
                 </p>
@@ -671,7 +665,7 @@ export default function Index() {
                   <div
                     key={post.id}
                     onClick={() => navigate(`/post/${post.id}`)}
-                    className="group bg-card border border-border rounded-xl overflow-hidden hover:border-accent hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1 animate-fadeIn"
+                    className="group bg-slate-800 border border-slate-700 rounded-xl overflow-hidden hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer hover:-translate-y-1 animate-fadeIn"
                     style={{ animationDelay: `${idx * 0.05}s` }}
                   >
                     {post.thumbnail && (
@@ -703,27 +697,27 @@ export default function Index() {
                       </div>
                     )}
                     <div className="p-5">
-                      <h3 className="font-bold text-foreground text-base line-clamp-2 mb-3 group-hover:text-accent transition-colors">
+                      <h3 className="font-bold text-white text-base line-clamp-2 mb-3 group-hover:text-blue-400 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                      <p className="text-sm text-gray-400 line-clamp-3 mb-4">
                         {post.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {post.country && (
-                          <span className="inline-flex items-center gap-1 bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                          <span className="inline-flex items-center gap-1 bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">
                             <GlobeIcon className="w-3 h-3" />
                             {post.country}
                           </span>
                         )}
                         {post.city && (
-                          <span className="inline-flex items-center gap-1 bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                          <span className="inline-flex items-center gap-1 bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">
                             <MapPinIcon className="w-3 h-3" />
                             {post.city}
                           </span>
                         )}
                         {post.server && (
-                          <span className="inline-flex items-center gap-1 bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                          <span className="inline-flex items-center gap-1 bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-xs font-medium">
                             <ServerIcon className="w-3 h-3" />
                             {post.server}
                           </span>
@@ -740,7 +734,7 @@ export default function Index() {
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className="px-3 sm:px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
+                    className="px-3 sm:px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
                   >
                     ← Prev
                   </button>
@@ -753,8 +747,8 @@ export default function Index() {
                           className={cn(
                             "w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-medium transition-all text-xs sm:text-sm shadow-sm hover:shadow-md",
                             currentPage === page
-                              ? "bg-accent text-accent-foreground"
-                              : "bg-card border border-border hover:border-accent text-foreground",
+                              ? "bg-blue-600 text-white"
+                              : "bg-slate-800 border border-slate-700 hover:border-slate-600 text-white",
                           )}
                         >
                           {page}
@@ -767,7 +761,7 @@ export default function Index() {
                       setCurrentPage(Math.min(totalPages, currentPage + 1))
                     }
                     disabled={currentPage === totalPages}
-                    className="px-3 sm:px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
+                    className="px-3 sm:px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg active:scale-95 text-sm sm:text-base"
                   >
                     Next →
                   </button>
@@ -776,7 +770,7 @@ export default function Index() {
             </>
           ) : (
             <div className="text-center py-16 animate-fadeIn">
-              <p className="text-muted-foreground text-base sm:text-lg">
+              <p className="text-gray-400 text-base sm:text-lg">
                 No posts match your search criteria. Try adjusting your filters.
               </p>
             </div>
