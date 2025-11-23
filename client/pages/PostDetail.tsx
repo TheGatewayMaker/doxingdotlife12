@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MediaViewer from "@/components/MediaViewer";
 import { Post } from "@shared/api";
+import { GlobeIcon, MapPinIcon, ServerIcon } from "@/components/Icons";
 
 export default function PostDetail() {
   const { postId } = useParams<{ postId: string }>();
