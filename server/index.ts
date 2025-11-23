@@ -53,7 +53,6 @@ export function createServer() {
   app.post("/api/auth/logout", handleLogout);
   app.get("/api/auth/check", handleCheckAuth);
 
-
   // Forum API routes
   app.post(
     "/api/upload",
